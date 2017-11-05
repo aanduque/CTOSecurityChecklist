@@ -1,5 +1,10 @@
 [![logo](https://cto-security-checklist.sqreen.io/images/github.jpg)](https://cto-security-checklist.sqreen.io/)
 
+# The SaaS CTO Security Checklist: WP Theme Fork
+
+1) It requires that you set a page as static front-page.
+2) It uses the title and content of that page as the header elements;
+
 # The SaaS CTO Security Checklist
 
 [https://cto-security-checklist.sqreen.io/](https://cto-security-checklist.sqreen.io/)
