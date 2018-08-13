@@ -66,6 +66,14 @@ gulp.task('styles', function() {
 gulp.task('default', ['browser-sync'], function() {
     gulp.watch("docs/scss/**/*.scss", ['styles']);
     gulp.watch("docs/js/**/*.js");
+    gulp.watch("docs/js/**/*.js", ['scripts']);
+
+    // gulp.watch("*.php", ['bs-reload']);
+});
+
+gulp.task('watch', function () {
+    // Endless stream mode
+    gulp.watch("docs/scss/**/*.scss", ['styles']);
+    gulp.watch("docs/js/**/*.js");
     // gulp.watch("docs/js/**/*.js", ['scripts']);
-    gulp.watch("*.php", ['bs-reload']);
 });

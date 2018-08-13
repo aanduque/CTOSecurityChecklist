@@ -19,6 +19,7 @@
     "gulp-plumber": "*",
     "gulp-rename": "*",
     "gulp-sass": "^2.3.2",
-    "gulp-uglify": "*"
+    "gulp-uglify": "*",
+    "gulp-watch": "^5.0.1"
   }
 }

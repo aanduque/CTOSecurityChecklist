@@ -5,35 +5,51 @@ $grid.isotope({
   filter: "*"
 })
 
+function get_width(elements) {
+
+  var totalWidth = 0;
+
+  elements.each(function (index) {
+    totalWidth += parseInt($(this).outerWidth(), 10) + 12;
+  });
+
+  return totalWidth;
+
+}
+
 // Show seed items
-$('.filter-bar .seed').on( 'click', function() {
-  $('.filter-bar li').removeClass('selected');
-  $('.filter-bar ul').removeClass();
-  $(this).parent().addClass('selected-one');
-  $grid.isotope({
-    transitionDuration: 300,
-    filter: ".seed"
+$('.filter-bar li').on( 'click', function() {
+
+  var $index = $(this).index();
+
+  var $targets = $(this).parent().children(':lt('+ ($index + 1) +')');
+
+  console.log($targets);
+
+  var $classes = $targets.map(function() {
+    return $(this).attr('class');
   });
-});
-// Show seriesa items
-$('.filter-bar .seriesa').on( 'click', function() {
+
+  console.log(typeof $classes);
+
   $('.filter-bar li').removeClass('selected');
+
   $('.filter-bar ul').removeClass();
-  $(this).parent().addClass('selected-two');
+
+  $(this).parent().addClass('selected-' + ($index + 1));
+
+  // Change the size of the block
+  var $size = get_width($targets);
+
+  console.log($size);
+
+  $('.filler').css('width', $size);
+
   $grid.isotope({
     transitionDuration: 300,
-    filter: ".seriesa, .seed"
+    filter: $classes.length ? '.' + $classes.toArray().join(', .') : '',
   });
-});
-// Show all item
-$('.filter-bar .above').on( 'click', function() {
-  $('.filter-bar li').removeClass('selected');
-  $('.filter-bar ul').removeClass();
-  $(this).parent().addClass('selected-three');
-  $grid.isotope({
-    transitionDuration: 300,
-    filter: '*'
-  })
+
 });
 
 // Check
